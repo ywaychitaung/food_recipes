@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {% if title %}
+    <title>Django Recipes - {{title}}</title>
+    {% else %}
+    <title>Django Recipes</title>
+    {% endif %}
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="mt-4">
+    <!-- HEADER -->
+    <header
+      class="d-flex align-items-center justify-content-between"
+      style="margin-left: 8rem; margin-right: 8rem; margin-top: 3rem;"
+    >
+      <div class="d-flex align-items-end">
+        <h1>Recipes</h1>
+        <nav class="mx-5">
+          <ul class="d-flex gap-5 list-unstyled">
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'recipes-create' %}">Add Recipe</a>
+            </li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+
+      {% if user.is_authenticated %}
+          <a href="{% url 'user-logout' %}">
+            <button class="btn btn-outline-success">Logout</button>
+          </a>
+          {% else %}
+          <a href="{% url 'user-login' %}">
+            <button class="btn btn-outline-success">Login</button>
+          </a>
+      {% endif %}
+    </header>
+    <!-- END OF HEADER -->
+
+    <div style="min-height: 60vh; margin-top: 3rem; margin-bottom: 5rem; margin-left: 8rem; margin-right: 8rem;">
+      {% if messages %} {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% block content %} {% endblock %}
+    </div>
+
+    <!-- FOOTER -->
+    <footer
+      class="text-center bg-success text-white mx-auto py-3"
+      style="
+        width: 80%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+      "
+    >
+      Copyright &copy; 2023
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+      integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "recipes/base.html" %}
+<!-- -->
+{% load crispy_forms_tags %}
+<!-- -->
+{% block content %}
+<div class="container col-4" style="margin-top: 12rem;">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4 text-center">Log In!</legend>
+      {{ form|crispy }}
+    </fieldset>
+    <div class="form-group py-3 text-center">
+      <input class="btn btn-outline-success" type="submit" value="Login" />
+    </div>
+  </form>
+</div>
+
+<!-- -->
+{% endblock content %}
