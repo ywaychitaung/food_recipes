@@ -5,7 +5,11 @@ from django.urls import reverse
 # Create your models here.
 class Recipe(models.Model):
   title = models.CharField(max_length=100)
+  image = models.ImageField(upload_to="recipes", null=True)
   description = models.TextField(null=True)
+  prep_time = models.PositiveIntegerField(null=True)
+  cook_time = models.PositiveIntegerField(null=True)
+  serving = models.PositiveIntegerField(null=True)
   instructions = models.TextField(null=True)
   ingredients = models.TextField(null=True)
 

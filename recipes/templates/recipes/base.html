@@ -3,37 +3,74 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% if title %}
-    <title>Django Recipes - {{title}}</title>
-    {% else %}
-    <title>Django Recipes</title>
-    {% endif %}
+    <title>Food Recipes</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
+
+    <style>
+      a {
+        color: black;
+      }
+      a:hover {
+        color: #14b8a6;
+      }
+
+      @media only screen and (min-width: 320px) {
+        .nav-margin {
+          margin-left: 3rem;
+          margin-right: 3rem;
+          margin-top: 3rem;
+        }
+
+        .main {
+          min-height: 60vh; margin-top: 5rem; margin-bottom: 5rem; margin-left: 3rem; margin-right: 3rem;
+        }
+        
+        .landing-image {
+          height: 10rem; width: 10rem; margin-left: auto; margin-right: auto;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        .nav-margin {
+          margin-left: 8rem;
+          margin-right: 8rem;
+          margin-top: 3rem;
+        }
+
+        .main {
+          min-height: 60vh; margin-top: 3rem; margin-bottom: 5rem; margin-left: 8rem; margin-right: 8rem;
+        }
+
+        .landing-image {
+          height: 35rem; width: 35rem
+        }
+      }
+
+    </style>
   </head>
   <body class="mt-4">
     <!-- HEADER -->
     <header
-      class="d-flex align-items-center justify-content-between"
-      style="margin-left: 8rem; margin-right: 8rem; margin-top: 3rem;"
+      class="d-flex align-items-center justify-content-between nav-margin"
     >
       <div class="d-flex align-items-end">
         <h1>Recipes</h1>
-        <nav class="mx-5">
+        <nav class="mx-5 d-none d-md-block">
           <ul class="d-flex gap-5 list-unstyled">
             <li>
-              <a href="/">Home</a>
+              <a href="/" class="text-decoration-none pe-auto">Home</a>
             </li>
             <li>
-              <a href="/about">About</a>
+              <a href="/about" class="text-decoration-none pe-auto">About</a>
             </li>
             {% if user.is_authenticated %}
             <li>
-              <a href="{% url 'recipes-create' %}">Add Recipe</a>
+              <a href="{% url 'recipes-create' %}" class="text-decoration-none pe-auto">Add Recipe</a>
             </li>
             {% endif %}
           </ul>
@@ -52,7 +89,7 @@
     </header>
     <!-- END OF HEADER -->
 
-    <div style="min-height: 60vh; margin-top: 3rem; margin-bottom: 5rem; margin-left: 8rem; margin-right: 8rem;">
+    <div class="main">
       {% if messages %} {% for message in messages %}
       <div class="alert alert-{{ message.tags }}">{{ message }}</div>
       {% endfor %} {% endif %} {% block content %} {% endblock %}

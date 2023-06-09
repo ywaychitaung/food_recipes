@@ -1,17 +1,17 @@
 {% extends "recipes/base.html" %}
 <!-- -->
 {% block content %}
-<div class="container text-center" style="margin-top: 12rem;">
+<div class="container text-center d-none d-sm-block" style="margin-top: 12rem;">
   <div class="row">
     <div class="col">
-      <img src="https://dummyimage.com/450x300" alt="Image">
+      <img src="{{ object.image.url }}" alt="Image">
     </div>
     <div class="col text-start">
       <div class="d-flex justify-content-between">
         <h3 class="mb-5">{{ object.title }}</h3>
 
         {% if user.is_authenticated %}
-        <div class="d-flex">
+        <div class="d-xs-block d-md-flex">
           <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;">
           <button class="btn btn-outline-warning">Update</button>
         </a>
@@ -21,7 +21,7 @@
         </div>
         {% endif %}
       </div>
-      <p>{{ object.description }}</p>
+      <p style="line-height: 3rem;">{{ object.description }}</p>
 
       <div class="row mt-5">
         <div class="col text-center">
@@ -30,7 +30,7 @@
           </svg>
 
           <p class="mt-4">Prep Time</p>
-          <p style="margin-top: -1rem;">30 min</p>
+          <p style="margin-top: -1rem;">{{ object.prep_time }} mins</p>
         </div>
 
         <div class="col text-center">
@@ -40,7 +40,7 @@
           </svg>
 
           <p class="mt-4">Cook Time</p>
-          <p style="margin-top: -1rem;">30 min</p>
+          <p style="margin-top: -1rem;">{{ object.cook_time }} mins</p>
         </div>
 
         <div class="col text-center">
@@ -49,18 +49,68 @@
           </svg>
 
           <p class="mt-4">Serving</p>
-          <p style="margin-top: -1rem;">6 persons</p>
+          <p style="margin-top: -1rem;">{{ object.serving }} persons</p>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container" style="margin-top: 8rem; margin-bottom: 8rem;">
+<div class="container d-block d-sm-none">
+  <img src="{{ object.image.url }}" alt="Image">
+  
+      <div class="d-flex justify-content-between">
+        <h3 class="my-5">{{ object.title }}</h3>
+
+        {% if user.is_authenticated %}
+        <div class="d-xs-block d-md-flex">
+          <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;">
+          <button class="btn btn-outline-warning">Update</button>
+        </a>
+        <a href="{% url 'recipes-delete' object.id %}">
+          <button class="btn btn-outline-danger">Delete</button>
+        </a>
+        </div>
+        {% endif %}
+      </div>
+      <p style="line-height: 3rem;">{{ object.description }}</p>
+
+      <div class="row mt-5">
+        <div class="col text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-easel text-success" viewBox="0 0 16 16">
+            <path d="M8 0a.5.5 0 0 1 .473.337L9.046 2H14a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1.85l1.323 3.837a.5.5 0 1 1-.946.326L11.092 11H8.5v3a.5.5 0 0 1-1 0v-3H4.908l-1.435 4.163a.5.5 0 1 1-.946-.326L3.85 11H2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h4.954L7.527.337A.5.5 0 0 1 8 0zM2 3v7h12V3H2z"/>
+          </svg>
+
+          <p class="mt-4">Prep Time</p>
+          <p style="margin-top: -1rem;">{{ object.prep_time }} mins</p>
+        </div>
+
+        <div class="col text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-alarm text-success" viewBox="0 0 16 16">
+            <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z"/>
+            <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z"/>
+          </svg>
+
+          <p class="mt-4">Cook Time</p>
+          <p style="margin-top: -1rem;">{{ object.cook_time }} mins</p>
+        </div>
+
+        <div class="col text-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-person text-success" viewBox="0 0 16 16">
+            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+          </svg>
+
+          <p class="mt-4">Serving</p>
+          <p style="margin-top: -1rem;">{{ object.serving }} persons</p>
+        </div>
+      </div>
+</div>
+
+<div class="container d-none d-sm-block" style="margin-top: 8rem; margin-bottom: 8rem;">
   <div class="row">
     <div class="col" style="margin-right: 8rem;">
       <h3 class="mb-5">Instructions</h3>
-      <p style="line-height: 3rem; ">{{ object.instructions }}</p>
+      <p style="line-height: 3rem;">{{ object.instructions }}</p>
     </div>
 
     <div class="col-4">
@@ -68,6 +118,14 @@
       <p style="line-height: 3rem; ">{{ object.ingredients }}</p>
     </div>
   </div>
+</div>
+
+<div class="container d-block d-sm-none text-left mt-5">
+  <h3 class="mb-5">Instructions</h3>
+  <p style="line-height: 3rem;">{{ object.instructions }}</p>
+
+     <h3 class="mt-5">Ingredients</h3>
+      <p style="line-height: 3rem; ">{{ object.ingredients }}</p>
 </div>
 
 <!-- <div class="card my-4">

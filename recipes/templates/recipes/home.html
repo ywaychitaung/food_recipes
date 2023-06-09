@@ -5,7 +5,7 @@
 {% load static %}
 
 <section>
-  <div class="row d-flex align-items-center">
+  <div class="row d-xs-block d-md-flex align-items-center">
     <div class="col">
       <h1 class="lh-base">
         Let's Start <br />
@@ -20,22 +20,24 @@
 
       <div class="d-flex">
         <a href="/">
-          <button class="btn btn-success">Get Started</button>
+          <button class="btn btn-success me-3">Get Started</button>
         </a>
 
-        <button class="btn btn-outline-success mx-3">Explore Menu</button>
+        <a href="/">
+          <button class="btn btn-outline-success">Explore Menu</button>
+        </a>
       </div>
     </div>
 
     <div class="col position-relative">
       <img
-        style="height: 35rem; width: 35rem"
+        class="landing-image"
         src="{% static '/images/landing.png' %}"
         alt="Landing"
       />
 
       <div
-        class="card position-absolute"
+        class="card position-absolute d-none d-md-block"
         style="width: 15rem; top: 20rem; right: 25rem"
       >
         <div class="card-body">
@@ -67,7 +69,7 @@
       </div>
 
       <div
-        class="card position-absolute"
+        class="card position-absolute d-none d-md-block"
         style="width: 15rem; top: 25rem; left: 25rem"
       >
         <div class="card-body">
@@ -106,19 +108,19 @@
     <div class="row">
       {% for recipe in recipes %}
       <div class="col-sm-4 mb-5">
-        <a href="{% url 'recipes-detail' recipe.pk %}">
+        <a href="{% url 'recipes-detail' recipe.pk %}" class="text-reset text-decoration-none">
           <div class="card">
           <img
-            src="https://dummyimage.com/300"
+            src="{{ recipe.image.url }}"
             class="card-img-top"
             alt="Image"
           />
           <div class="card-body">
-            <p class="card-text">{{ recipe.title }}</p>
-            <p class="card-text">Prep: 15 mins | Cook: 15 mins</p>
-              <h6 class="card-text mb-2">
+            <h4 class="card-text mb-4">{{ recipe.title }}</h4>
+            <p class="card-text">Prep: {{ recipe.prep_time }} mins | Cook: {{ recipe.cook_time }} mins</p>
+              <p class="card-text mb-2">
               {{ recipe.updated_at|date:"F d, Y" }}
-            </h6>
+            </p>
           </div>
         </div>
         </a>
