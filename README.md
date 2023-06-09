@@ -11,6 +11,12 @@ This is a [Django](https://www.djangoproject.com/) project bootstrapped with [`B
 
 Mac: 
 
+Install Homebrew
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
 Install Python via Homebrew
 
 ```bash
