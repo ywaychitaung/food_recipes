@@ -1,11 +1,16 @@
-This is a [Django](https://www.djangoproject.com/) project bootstrapped with [`Bootstrap 5`](https://getbootstrap.com/).
+This is a [Django](https://www.djangoproject.com/) project bootstrapped with [Bootstrap 5](https://getbootstrap.com/).
 
-## Screenshots
+## Screenshots (Desktop View)
 
-![Home Screen](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/1_hs1ekz.png)
-![Recipes](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/2_vktkvn.png)
-![Detail](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/3_okden1.png)
-![Login](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297128/Food%20Recipes/4_zdpw5c.png)
+| Home Screen | Recipes | Detail  | Login |
+| ------------- | ------------- | ------------- | ------------- |
+| ![Home Screen](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/1_hs1ekz.png) | ![Recipes](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/2_vktkvn.png) | ![Detail](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297129/Food%20Recipes/3_okden1.png) | ![Login](https://res.cloudinary.com/ywaychitaung/image/upload/v1686297128/Food%20Recipes/4_zdpw5c.png) |
+
+## Screenshots (Mobile View)
+
+| Home Screen | Recipes | Detail  | Login |
+| ------------- | ------------- | ------------- | ------------- |
+| ![Home Screen](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/5_kvj1c8.jpg) | ![Recipes](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/6_esvbjm.jpg) | ![Detail](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/7_tanvug.jpg) | ![Login](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/8_lxdodp.jpg) |
 
 ## Getting Started
 
