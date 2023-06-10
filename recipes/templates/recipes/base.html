@@ -31,14 +31,14 @@
         }
         
         .landing-image {
-          height: 10rem; width: 10rem; margin-left: auto; margin-right: auto;
+          height: 10rem; width: 10rem;
         }
 
         .line-height-sm {
           line-height: 2rem;
         }
       }
-
+    
       @media only screen and (min-width: 768px) {
         .nav-margin {
           margin-left: 8rem;
@@ -51,14 +51,19 @@
         }
 
         .landing-image {
-          height: 35rem; width: 35rem
+          height: 20rem; width: 20rem
         }
 
         .line-height-sm {
           line-height: 3rem;
         }
       }
-
+    
+      @media only screen and (min-width: 1200px) {
+        .landing-image {
+          height: 35rem; width: 35rem
+        }
+      }
     </style>
   </head>
   <body class="mt-4">
@@ -67,7 +72,9 @@
       class="d-flex align-items-center justify-content-between nav-margin"
     >
       <div class="d-flex align-items-end">
-        <h1>Recipes</h1>
+        <a href="/" class="text-decoration-none">
+          <h1>Recipes</h1>
+        </a>
         <nav class="mx-5 d-none d-md-block">
           <ul class="d-flex gap-5 list-unstyled">
             <li>
@@ -86,11 +93,11 @@
       </div>
 
       {% if user.is_authenticated %}
-          <a href="{% url 'user-logout' %}">
+          <a href="{% url 'user-logout' %}" class="d-none d-md-block">
             <button class="btn btn-outline-success">Logout</button>
           </a>
           {% else %}
-          <a href="{% url 'user-login' %}">
+          <a href="{% url 'user-login' %}" class="d-none d-md-block">
             <button class="btn btn-outline-success">Login</button>
           </a>
       {% endif %}
