@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     # 3rd party
     'bootstrap5',
+    'rest_framework',
     'crispy_forms',
 ]
 

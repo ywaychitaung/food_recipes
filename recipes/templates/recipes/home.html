@@ -205,7 +205,7 @@
     <div class="row">
       {% for recipe in recipes %}
       <div class="col-sm-4 mb-5">
-        <a href="{% url 'recipes-detail' recipe.pk %}" class="text-reset text-decoration-none">
+        <a href="{% url 'recipes-detail' recipe.slug %}" class="text-reset text-decoration-none">
           <div class="card">
           <img
             src="{{ recipe.image.url }}"

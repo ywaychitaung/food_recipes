@@ -60,19 +60,14 @@
   <img src="{{ object.image.url }}" alt="Image">
   
     <h3 class="my-5">{{ object.title }}</h3>
-      <div class="d-flex justify-content-between mb-5">
 
-        {% if user.is_authenticated %}
-        <div class="d-xs-block d-md-flex">
-          <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;">
-          <button class="btn btn-outline-warning">Update</button>
-        </a>
-        <a href="{% url 'recipes-delete' object.id %}">
-          <button class="btn btn-outline-danger">Delete</button>
-        </a>
-        </div>
-        {% endif %}
-      </div>
+    {% if user.is_authenticated %}
+       <div class="my-5">
+        <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;"><button class="btn btn-outline-warning">Update</button></a>
+        <a href="{% url 'recipes-delete' object.id %}"><button class="btn btn-outline-danger">Delete</button></a>
+       </div>
+       {% endif %}
+          
       <p style="line-height: 3rem;">{{ object.description }}</p>
 
       <div class="row mt-5">
