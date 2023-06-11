@@ -53,7 +53,7 @@ class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
   model = models.Recipe
   slug_url_kwarg = 'the_slug'
   slug_field = 'slug'
-  fields = ['title', 'image', 'description', 'prep_time', 'cook_time', 'serving', 'instructions', 'ingredients']
+  fields = ['title', 'slug', 'image', 'description', 'prep_time', 'cook_time', 'serving', 'instructions', 'ingredients']
 
   def test_func(self):
     recipe = self.get_object()
