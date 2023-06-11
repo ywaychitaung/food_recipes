@@ -12,25 +12,53 @@ This is a [Django](https://www.djangoproject.com/) project bootstrapped with [Bo
 | ------------- | ------------- | ------------- | ------------- |
 | ![Home Screen](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/5_kvj1c8.jpg) | ![Recipes](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/6_esvbjm.jpg) | ![Detail](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/7_tanvug.jpg) | ![Login](https://res.cloudinary.com/ywaychitaung/image/upload/v1686420778/Food%20Recipes/8_lxdodp.jpg) |
 
-## Getting Started
+## Getting Started (Windows & Mac)
 
-Mac: 
-
-Install Homebrew
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Install Python via Homebrew
-
-```bash
-brew install python
-```
+Install Python from [https://www.python.org](https://www.python.org/)
 
 ## Run
 
-```bash
+Windows or Mac
+
+1. Make a virtual environment.
+
+```
+python3 -m venv env
+```
+
+2. Activate the virtual environment.
+
+```
+source env/bin/activate
+```
+
+3. Install required packages.
+
+```
+pip install -r requirements.txt
+```
+
+4. Make migrations.
+
+```
+python3 manage.py makemigrations
+```
+
+5. Migrate SQLite3 databases.
+
+```
+python3 manage.py migrate
+```
+
+6. Start the server.
+
+```
+python3 manage.py runserver
+```
+
+Or if you have installed git on Windows and on Mac, you can simply run
+
+```
 bash startserver.sh
 ```
 
