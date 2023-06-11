@@ -80,16 +80,16 @@
             <li>
               <a href="/about" class="text-decoration-none pe-auto">About</a>
             </li>
-            {% if user.is_authenticated %}
+            <!-- {% if user.is_authenticated %}
             <li>
               <a href="{% url 'recipes-create' %}" class="text-decoration-none pe-auto">Add Recipe</a>
             </li>
-            {% endif %}
+            {% endif %} -->
           </ul>
         </nav>
       </div>
 
-      {% if user.is_authenticated %}
+      <!-- {% if user.is_authenticated %}
           <a href="{% url 'user-logout' %}" class="d-none d-md-block">
             <button class="btn btn-outline-success">Logout</button>
           </a>
@@ -97,7 +97,7 @@
           <a href="{% url 'user-login' %}" class="d-none d-md-block">
             <button class="btn btn-outline-success">Login</button>
           </a>
-      {% endif %}
+      {% endif %} -->
 
       <div class="dropdown d-block d-md-none">
         <button class="btn btn-secondary text-black bg-white" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
@@ -109,7 +109,7 @@
           
           <li><a href="/" class="dropdown-item">Home</a></li>
           <li><a href="/about" class="dropdown-item">About</a></li>
-             {% if user.is_authenticated %}
+             <!-- {% if user.is_authenticated %}
             <li>
               <a href="{% url 'recipes-create' %}" class="dropdown-item">Add Recipe</a>
             </li>
@@ -118,7 +118,7 @@
           <li><a href="{% url 'user-logout' %}" class="dropdown-item">Logout</a></li>
             {% else %}
             <li><a href="{% url 'user-login' %}" class="dropdown-item">Login</a></li>
-                  {% endif %}
+                  {% endif %} -->
         </ul>
       </div>
     </header>
