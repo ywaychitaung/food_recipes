@@ -106,9 +106,19 @@
           </svg>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          
           <li><a href="/" class="dropdown-item">Home</a></li>
           <li><a href="/about" class="dropdown-item">About</a></li>
-          <li><a href="/login" class="dropdown-item">Login</a></li>
+             {% if user.is_authenticated %}
+            <li>
+              <a href="{% url 'recipes-create' %}" class="dropdown-item">Add Recipe</a>
+            </li>
+            {% endif %}
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'user-logout' %}" class="dropdown-item">Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'user-login' %}" class="dropdown-item">Login</a></li>
+                  {% endif %}
         </ul>
       </div>
     </header>

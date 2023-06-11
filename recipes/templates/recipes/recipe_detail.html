@@ -59,8 +59,8 @@
 <div class="container d-block d-sm-none">
   <img src="{{ object.image.url }}" alt="Image">
   
-      <div class="d-flex justify-content-between">
-        <h3 class="my-5">{{ object.title }}</h3>
+    <h3 class="my-5">{{ object.title }}</h3>
+      <div class="d-flex justify-content-between mb-5">
 
         {% if user.is_authenticated %}
         <div class="d-xs-block d-md-flex">
