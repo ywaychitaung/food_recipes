@@ -22,8 +22,13 @@ def home(request):
   return render(request, 'recipes/home.html', context)
 
 def about(request):
-  return render(request, 'recipes/about.html', {'title': 'about page'})
+  return render(request, 'recipes/about.html')
 
+def news(request):
+  return render(request, 'recipes/news.html')
+
+def videos(request):
+  return render(request, 'recipes/videos.html')
 
 class RecipeDetailView(DetailView):
   model = models.Recipe
