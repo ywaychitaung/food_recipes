@@ -7,6 +7,7 @@ from . import views
 
 urlpatterns = [
     path('', views.RecipeListView.as_view(), name="recipes-home"),
+    path('recipe/<int:pk>', views.RecipeInstanceView.as_view()),
     path('recipe/create', views.RecipeCreateView.as_view(), name="recipes-create"),
     path('recipe/<slug:the_slug>', views.RecipeDetailView.as_view(), name="recipes-detail"),
     path('recipe/<int:pk>/update', views.RecipeUpdateView.as_view(), name="recipes-update"),
@@ -14,15 +15,15 @@ urlpatterns = [
     path('about/', views.about, name="recipes-about"),
 
     # the URLs for your APIs start from here
-    url(r'^recipe$', RecipeViewSet.as_view(
-        {
-            'get': 'retrieve',
-            'post': 'create',
-            'put': 'update',
-            'patch': 'partial_update',
-            'delete': 'destroy'
-        }
-    )),
+    # url(r'^recipe$', RecipeViewSet.as_view(
+    #     {
+    #         'get': 'retrieve',
+    #         'post': 'create',
+    #         'put': 'update',
+    #         'patch': 'partial_update',
+    #         'delete': 'destroy'
+    #     }
+    # )),
     url(r'^recipes$', RecipeViewSet.as_view(
         {
             'get': 'list',

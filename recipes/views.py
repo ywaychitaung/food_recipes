@@ -6,6 +6,7 @@ from .serializers import RecipeSerializer
 from .models import Recipe
 from rest_framework.viewsets import ModelViewSet
 from . import models
+from rest_framework import generics
 
 class RecipeListView(ListView):
   model = models.Recipe
@@ -74,3 +75,8 @@ class RecipeViewSet(ModelViewSet):
 
     def perform_destroy(self, instance):
         instance.save()
+
+class RecipeInstanceView(generics.RetrieveAPIView):
+    queryset = Recipe.objects.all()
+    serializer_class = RecipeSerializer
+
