@@ -204,11 +204,12 @@
   <h1 class="my-5">Recipes:</h1>
     <div class="row">
       {% for recipe in recipes %}
-      <div class="col-sm-4 mb-5">
+      <div class="col-sm-6 col-lg-4 mb-5 text-truncate">
         <a href="{% url 'recipes-detail' recipe.slug %}" class="text-reset text-decoration-none">
           <div class="card">
           <img
             src="{{ recipe.image.url }}"
+            style="height: 300px;"
             class="card-img-top"
             alt="Image"
           />
