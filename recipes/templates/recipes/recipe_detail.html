@@ -11,14 +11,14 @@
         <h3 class="mb-5">{{ object.title }}</h3>
 
         {% if user.is_authenticated %}
-        <div class="d-xs-block d-md-flex">
+        <!-- <div class="d-xs-block d-md-flex">
           <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;">
           <button class="btn btn-outline-warning">Update</button>
         </a>
         <a href="{% url 'recipes-delete' object.id %}">
           <button class="btn btn-outline-danger">Delete</button>
         </a>
-        </div>
+        </div> -->
         {% endif %}
       </div>
       <p style="line-height: 3rem;">{{ object.description }}</p>
@@ -62,10 +62,10 @@
     <h3 class="my-5">{{ object.title }}</h3>
 
     {% if user.is_authenticated %}
-       <div class="my-5">
+       <!-- <div class="my-5">
         <a href="{% url 'recipes-update' object.id %}" style="margin-right: 1rem;"><button class="btn btn-outline-warning">Update</button></a>
         <a href="{% url 'recipes-delete' object.id %}"><button class="btn btn-outline-danger">Delete</button></a>
-       </div>
+       </div> -->
        {% endif %}
           
       <p style="line-height: 3rem;" class="mb-5">{{ object.description }}</p>
