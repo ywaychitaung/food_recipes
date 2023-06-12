@@ -23,6 +23,17 @@ a {
         .line-height-sm {
           line-height: 2rem;
         }
+
+        .news-image {
+          height: 300px;
+          width: 300px;
+        }
+
+        .news-text {
+          line-height: 2rem;
+          margin-top: 2rem;
+          margin-bottom: 4rem;
+        }
       }
     
       @media only screen and (min-width: 768px) {
@@ -41,6 +52,10 @@ a {
         }
 
         .line-height-sm {
+          line-height: 3rem;
+        }
+
+        .news-text {
           line-height: 3rem;
         }
       }
